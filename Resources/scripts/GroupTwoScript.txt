@@ -1,0 +1,70 @@
+on init 
+
+	{General UI Constants}
+	declare const $UI_HEIGHT := 350
+	declare const $UI_WIDTH := 633
+	declare const $Y_OFFSET := 0
+	declare const $X_OFFSET := 0
+	declare const $UI_COLOUR_HEX := 934d8ddh  {Change this to the 6 character hex number of your chosen colour and leave the 9 at the start and h at the end (eg. 9<hex_code>h).}
+	
+	declare $KILLSWITCH_USED
+
+   	declare ui_slider $GroupThreeVol(0, 700000)
+   	make_persistent($GroupThreeVol)
+
+   	declare ui_slider $GroupFourVol(0, 700000)
+   	make_persistent($GroupFourVol)
+
+	declare ui_button $GroupThreeBypass
+	make_persistent($GroupThreeBypass)
+	declare ui_button $GroupFourBypass
+   	make_persistent($GroupFourBypass)
+
+
+	{----Background----}
+
+		make_perfview
+
+   		set_script_title("Group 2: Industrial")
+
+		set_ui_height_px($UI_HEIGHT)
+		set_ui_width_px($UI_WIDTH)
+		set_ui_color($UI_COLOUR_HEX)
+
+		set_control_par_str ($INST_WALLPAPER_ID, $CONTROL_PAR_PICTURE, "Background")
+		set_skin_offset(444)
+
+		$KILLSWITCH_USED := 0
+
+		message("")
+
+
+end on
+
+on note
+	{ -- killswitch code -- }
+    if ($EVENT_NOTE = 45)
+
+        $KILLSWITCH_USED := 1
+    
+     end if
+
+end on
+
+on release
+	
+	{ -- code that sets group status apon note release, for use if killswitch was used at any point -- }
+
+	if ($KILLSWITCH_USED = 1)
+	
+		{ if ($GroupTwoBypass = 1) }
+		
+		else
+		{
+		set_engine_par($ENGINE_PAR_VOLUME, $GroupTwoVol, 3, -1, -1)
+		set_engine_par($ENGINE_PAR_VOLUME, $GroupTwoVol, 4, -1, -1)
+		}
+		end if
+
+
+end on

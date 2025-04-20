@@ -1,0 +1,43 @@
+on init 
+
+	{General UI Constants}
+	declare const $UI_HEIGHT := 350
+	declare const $UI_WIDTH := 633
+	declare const $Y_OFFSET := 0
+	declare const $X_OFFSET := 0
+	declare const $UI_COLOUR_HEX := 934d8ddh  {Change this to the 6 character hex number of your chosen colour and leave the 9 at the start and h at the end (eg. 9<hex_code>h).}
+	
+	{ -- sub snyth stuff -- }
+ 	declare ui_wavetable $SubSynthWave 
+
+	declare ui_menu $SubSynthDropdown
+	make_persistent(SubSynthDropdown)
+	
+	add_menu_item ($SubSynthDropdown, "Sine",0)
+	add_menu_item ($SubSynthDropdown, "Square",1)
+	add_menu_item ($SubSynthDropdown, "Saw",2)
+	add_menu_item ($SubSynthDropdown, "Triangle",3)
+
+	set_control_par(get_ui_id($SubSynthWave), $CONTROL_PAR_WT_ZONE, find_zone("Wavetable01"))
+
+	{----Background----}
+
+		make_perfview
+
+   		set_script_title("Master FX + Sub Synth")
+
+		set_ui_height_px($UI_HEIGHT)
+		set_ui_width_px($UI_WIDTH)
+		set_ui_color($UI_COLOUR_HEX)
+
+		set_control_par_str ($INST_WALLPAPER_ID, $CONTROL_PAR_PICTURE, "Background")
+		set_skin_offset(888)
+
+		message("")
+
+end on
+
+{ UI callback, executed whenever the user changes the respective UI element }
+on ui_control($SubSynthDropdown)
+	{your code here}
+end on

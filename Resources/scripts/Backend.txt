@@ -1,0 +1,64 @@
+on init 
+
+	{General UI Constants}
+
+    set_script_title("Backend stuff")
+
+	declare const $UI_HEIGHT := 350
+	declare const $UI_WIDTH := 634
+	declare const $Y_OFFSET := 0
+	declare const $X_OFFSET := 0
+	declare const $UI_COLOUR_HEX := 934d8ddh  {Change this to the 6 character hex number of your chosen colour and leave the 9 at the start and h at the end (eg. 9<hex_code>h).}
+
+	declare const $NATURE_KEY_START := 48
+	declare const $NATURE_KEY_END := 59
+
+    declare const $INDUST_KEY_START := 60
+    declare const $INDUST_KEY_END := 71
+
+    declare const $G3_KEY_START := 72
+    declare const $G3_KEY_END := 83
+
+    declare $i := $NATURE_KEY_START
+
+    set_control_par_str($INST_ICON_ID, $CONTROL_PAR_PICTURE, "NID_instrument_icon")
+
+    set_key_color( 45, $KEY_COLOR_RED)
+
+    while ($i <= $NATURE_KEY_END)
+
+        set_key_color( $i, $KEY_COLOR_GREEN)
+        inc($i)
+
+    end while
+
+    while($i <= $INDUST_KEY_END)
+
+        set_key_color($i, $KEY_COLOR_ORANGE)
+        inc($i)
+
+    end while
+
+    while($i <= $G3_KEY_END)
+        
+        set_key_color($i, $KEY_COLOR_MINT)
+        inc($i)
+        
+    end while
+
+end on
+
+on note
+	{ -- killswitch code -- }
+    if ($EVENT_NOTE = 45)
+
+         disallow_group($ALL_GROUPS)
+
+         message("KILLSWITCH USED - ALL GROUPS SILENCED")
+
+    else
+        message($EVENT_NOTE)
+    
+     end if
+     
+end on
