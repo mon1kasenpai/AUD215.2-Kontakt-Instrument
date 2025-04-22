@@ -8,15 +8,39 @@ on init
 	declare const $UI_COLOUR_HEX := 934d8ddh  {Change this to the 6 character hex number of your chosen colour and leave the 9 at the start and h at the end (eg. 9<hex_code>h).}
 	
 	{ -- sub snyth stuff -- }
+
  	declare ui_wavetable $SubSynthWave 
 
-	declare ui_menu $SubSynthDropdown
-	make_persistent(SubSynthDropdown)
+ 	declare ui_menu $SubSynthDropdown
+	make_persistent($SubSynthDropdown)
 	
-	add_menu_item ($SubSynthDropdown, "Sine",0)
-	add_menu_item ($SubSynthDropdown, "Square",1)
-	add_menu_item ($SubSynthDropdown, "Saw",2)
-	add_menu_item ($SubSynthDropdown, "Triangle",3)
+	add_menu_item ($SubSynthDropdown, "Sine", 0)
+	add_menu_item ($SubSynthDropdown, "Square", 1)
+	add_menu_item ($SubSynthDropdown, "Saw", 2)
+	add_menu_item ($SubSynthDropdown, "Triangle", 3)
+
+ 	declare ui_slider $SubSynthVol (0, 700000)
+	make_persistent($SubSynthVol)
+
+   declare ui_slider $SubSynthAttSlider(0,1000000)
+   make_persistent($SubSynthAttSlider)
+   declare $SubSynthAttSliderId
+   $SubSynthAttSliderId := get_ui_id($SubSynthAttSlider)
+
+   declare ui_slider $SubSynthDecSlider(0,1000000)
+   make_persistent($SubSynthDecSlider)
+   declare $SubSynthDecSliderId
+   $SubSynthDecSliderId := get_ui_id($SubSynthDecSlider)
+
+   declare ui_slider $SubSynthSusSlider(0,1000000)
+   make_persistent($SubSynthSusSlider)
+   declare $SubSynthSusSliderId
+   $SubSynthSusSliderId := get_ui_id($SubSynthSusSlider)
+	
+   declare ui_slider $SubSynthRelSlider(0,1000000)
+   make_persistent($SubSynthRelSlider)
+   declare $SubSynthRelSliderId
+   $SubSynthRelSliderId := get_ui_id($SubSynthRelSlider)
 
 	set_control_par(get_ui_id($SubSynthWave), $CONTROL_PAR_WT_ZONE, find_zone("Wavetable01"))
 
@@ -40,4 +64,27 @@ end on
 { UI callback, executed whenever the user changes the respective UI element }
 on ui_control($SubSynthDropdown)
 	{your code here}
+end on
+
+on note
+
+ disallow_group($ALL_GROUPS)
+
+ 	if ($GroupThreeBypass = 0)
+
+ 	allow_group(4)
+
+ 	end if
+
+	{ -- killswitch code -- }
+
+    if ($EVENT_NOTE = 45)
+
+        $KILLSWITCH_USED := 1
+
+        set_engine_par($ENGINE_PAR_VOLUME, 0, 2, -1, -1)
+        set_engine_par($ENGINE_PAR_VOLUME, 0, 3, -1, -1)
+
+     end if
+
 end on

@@ -13,14 +13,23 @@ on init
 
    	declare ui_slider $GroupOneVol(0, 700000)
    	make_persistent($GroupOneVol)
+   	declare $GroupOneVolId
+   	$GroupOneVolId := get_ui_id($GroupOneVol)
 
    	declare ui_slider $GroupTwoVol(0, 700000)
    	make_persistent($GroupTwoVol)
+   	declare $GroupTwoVolId
+	$GroupTwoVolId := get_ui_id($GroupTwoVol)
 
 	declare ui_button $GroupOneBypass
+   	make_persistent($GroupOneBypass)
+   	declare $GroupOneBypassId
+   	$GroupOneBypass := get_ui_id($GroupOneBypassId)
+
 	declare ui_button $GroupTwoBypass
-
-
+   	make_persistent($GroupTwoBypass)
+   	declare $GroupTwoBypassId
+	$GroupTwoBypassId := get_ui_id($GroupTwoBypass)
 
 	{----Background----}
 
@@ -41,35 +50,32 @@ on init
 
 		message("")
 
-end on
+	end on
 
-on note
 	{ -- killswitch code -- }
+
     if ($EVENT_NOTE = 45)
 
         $KILLSWITCH_USED := 1
-    
+
+        set_engine_par($ENGINE_PAR_VOLUME, 0, 0, -1, -1)
+        set_engine_par($ENGINE_PAR_VOLUME, 0, 1, -1, -1)
+
      end if
 
-end on
+	end on
 
 on release
 	
 	{ -- code that sets group status apon note release, for use if killswitch was used at any point -- }
 
 	if ($KILLSWITCH_USED = 1)
-	
-		if ($GroupOneBypass = 1)
 		
-		else
+		set_engine_par($ENGINE_PAR_VOLUME, $GroupThreeVol, 3, -1, -1)
+		set_engine_par($ENGINE_PAR_VOLUME, $GroupFourVol, 4, -1, -1)
+
+		$KILLSWITCH_USED := 0
 		
-		set_engine_par($ENGINE_PAR_VOLUME, $GroupOneVol, 3, -1, -1)
-		set_engine_par($ENGINE_PAR_VOLUME, $GroupOneVol, 4, -1, -1)
-			
-		end if
-	
-	end if 
+	end if
 
-	$KILLSWITCH_USED := 0
-
-end on
+	end on

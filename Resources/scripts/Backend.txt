@@ -57,8 +57,9 @@ on note
          message("KILLSWITCH USED - ALL GROUPS SILENCED")
 
     else
+
         message($EVENT_NOTE)
     
-     end if
+    end if
      
 end on
