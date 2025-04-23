@@ -29,7 +29,7 @@ on init
    	declare $GroupFourBypassId
 	$GroupFourBypassId := get_ui_id($GroupFourBypass)
 
-	   declare ui_slider $GroupThreeAttSlider(0,1000000)
+	declare ui_slider $GroupThreeAttSlider(0,1000000)
    make_persistent($GroupThreeAttSlider)
    declare $GroupThreeAttSliderId
    $GroupThreeAttSliderId := get_ui_id($GroupThreeAttSlider)
@@ -44,10 +44,10 @@ on init
    declare $GroupThreeSusSliderId
    $GroupThreeSusSliderId := get_ui_id($GroupThreeSusSlider)
 	
-   declare ui_slider $SubSynthRelSlider(0,1000000)
-   make_persistent($SubSynthRelSlider)
-   declare $SubSynthRelSliderId
-   $SubSynthRelSliderId := get_ui_id($SubSynthRelSlider)
+   declare ui_slider $GroupThreeRelSlider(0,1000000)
+   make_persistent($GroupThreeRelSlider)
+   declare $GroupThreeRelSliderId
+   $GroupThreeRelSliderId := get_ui_id($GroupThreeRelSlider)
 
    declare ui_slider $GroupFourAttSlider(0,1000000)
    make_persistent($GroupFourAttSlider)
