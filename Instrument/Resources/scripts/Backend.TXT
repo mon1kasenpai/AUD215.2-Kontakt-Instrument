@@ -3,13 +3,7 @@ on init
 	{General UI Constants}
 
     set_script_title("Backend stuff")
-
-	declare const $UI_HEIGHT := 350
-	declare const $UI_WIDTH := 634
-	declare const $Y_OFFSET := 0
-	declare const $X_OFFSET := 0
-	declare const $UI_COLOUR_HEX := 934d8ddh  {Change this to the 6 character hex number of your chosen colour and leave the 9 at the start and h at the end (eg. 9<hex_code>h).}
-
+ 
 	declare const $NATURE_KEY_START := 48
 	declare const $NATURE_KEY_END := 59
 
