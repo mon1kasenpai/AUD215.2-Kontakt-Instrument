@@ -46,7 +46,7 @@ on init
 		declare $SubSynthRelSliderId
 		$SubSynthRelSliderId := get_ui_id($SubSynthRelSlider)
 
-		set_control_par(get_ui_id($SubSynthWave), $CONTROL_PAR_WT_ZONE, find_zone("Wavetable01")) { -- ???? -- }
+		set_control_par(get_ui_id($SubSynthWave), $CONTROL_PAR_WT_ZONE, find_zone("Wavetable01")) { -- ???? gotta work out what this does -- }
 
 	{----Background----}
 
