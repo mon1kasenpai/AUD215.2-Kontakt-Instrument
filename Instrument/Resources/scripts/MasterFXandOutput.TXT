@@ -9,40 +9,44 @@ on init
 	
 	{ -- sub snyth stuff -- }
 
- 	declare ui_wavetable $SubSynthWave 
+		declare ui_wavetable $SubSynthWave 
 
- 	declare ui_menu $SubSynthDropdown
-	make_persistent($SubSynthDropdown)
-	
-	add_menu_item ($SubSynthDropdown, "Sine", 0)
-	add_menu_item ($SubSynthDropdown, "Square", 1)
-	add_menu_item ($SubSynthDropdown, "Saw", 2)
-	add_menu_item ($SubSynthDropdown, "Triangle", 3)
+		declare ui_menu $SubSynthDropdown
+		make_persistent($SubSynthDropdown)
 
- 	declare ui_slider $SubSynthVol (0, 700000)
-	make_persistent($SubSynthVol)
+		declare ui_button $
+		
+		add_menu_item ($SubSynthDropdown, "Sine", 0)
+		add_menu_item ($SubSynthDropdown, "Square", 1)
+		add_menu_item ($SubSynthDropdown, "Saw", 2)
+		add_menu_item ($SubSynthDropdown, "Triangle", 3)
 
-   declare ui_slider $SubSynthAttSlider(0,1000000)
-   make_persistent($SubSynthAttSlider)
-   declare $SubSynthAttSliderId
-   $SubSynthAttSliderId := get_ui_id($SubSynthAttSlider)
+		declare ui_slider $SubSynthVol (0, 700000)
+		make_persistent($SubSynthVol)
+		declare $SubSynthVolId
+		$SubSynthVolId := get_ui_id($SubSynthVol)
 
-   declare ui_slider $SubSynthDecSlider(0,1000000)
-   make_persistent($SubSynthDecSlider)
-   declare $SubSynthDecSliderId
-   $SubSynthDecSliderId := get_ui_id($SubSynthDecSlider)
+		declare ui_slider $SubSynthAttSlider(0,1000000)
+		make_persistent($SubSynthAttSlider)
+		declare $SubSynthAttSliderId
+		$SubSynthAttSliderId := get_ui_id($SubSynthAttSlider)
 
-   declare ui_slider $SubSynthSusSlider(0,1000000)
-   make_persistent($SubSynthSusSlider)
-   declare $SubSynthSusSliderId
-   $SubSynthSusSliderId := get_ui_id($SubSynthSusSlider)
-	
-   declare ui_slider $SubSynthRelSlider(0,1000000)
-   make_persistent($SubSynthRelSlider)
-   declare $SubSynthRelSliderId
-   $SubSynthRelSliderId := get_ui_id($SubSynthRelSlider)
+		declare ui_slider $SubSynthDecSlider(0,1000000)
+		make_persistent($SubSynthDecSlider)
+		declare $SubSynthDecSliderId
+		$SubSynthDecSliderId := get_ui_id($SubSynthDecSlider)
 
-	set_control_par(get_ui_id($SubSynthWave), $CONTROL_PAR_WT_ZONE, find_zone("Wavetable01"))
+		declare ui_slider $SubSynthSusSlider(0,1000000)
+		make_persistent($SubSynthSusSlider)
+		declare $SubSynthSusSliderId
+		$SubSynthSusSliderId := get_ui_id($SubSynthSusSlider)
+			
+		declare ui_slider $SubSynthRelSlider(0,1000000)
+		make_persistent($SubSynthRelSlider)
+		declare $SubSynthRelSliderId
+		$SubSynthRelSliderId := get_ui_id($SubSynthRelSlider)
+
+		set_control_par(get_ui_id($SubSynthWave), $CONTROL_PAR_WT_ZONE, find_zone("Wavetable01")) { -- ???? gotta work out what this does -- }
 
 	{----Background----}
 
