@@ -13,6 +13,8 @@ on init
 
  	declare ui_menu $SubSynthDropdown
 	make_persistent($SubSynthDropdown)
+
+	declare ui_button $
 	
 	add_menu_item ($SubSynthDropdown, "Sine", 0)
 	add_menu_item ($SubSynthDropdown, "Square", 1)
@@ -21,6 +23,8 @@ on init
 
  	declare ui_slider $SubSynthVol (0, 700000)
 	make_persistent($SubSynthVol)
+	declare $SubSynthVolId
+	$SubSynthVolId := get_ui_id($SubSynthVol)
 
    declare ui_slider $SubSynthAttSlider(0,1000000)
    make_persistent($SubSynthAttSlider)
