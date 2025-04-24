@@ -15,11 +15,18 @@ on init
    	make_persistent($GroupOneVol)
    	declare $GroupOneVolId
    	$GroupOneVolId := get_ui_id($GroupOneVol)
+	set_control_par_str($GroupOneVolId, $CONTROL_PAR_PICTURE, "HoriSlider")
+	set_control_par_str($GroupOneVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 
    	declare ui_slider $GroupTwoVol(0, 700000)
    	make_persistent($GroupTwoVol)
    	declare $GroupTwoVolId
 	$GroupTwoVolId := get_ui_id($GroupTwoVol)
+	set_control_par_str($GroupTwoVolId, $CONTROL_PAR_PICTURE, "HoriSlider")
+	set_control_par_str($GroupTwoVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+
+	move_control_px($GroupOneVol,300,300)
+
 
 	declare ui_button $GroupOneBypass
    	make_persistent($GroupOneBypass)
@@ -47,9 +54,9 @@ on init
    $GroupOneSusSliderId := get_ui_id($GroupOneSusSlider)
 	
    declare ui_slider $GroupOneRelSlider(0,1000000)
-   make_persistent($OneRelSlider)
-   declare $OneRelSliderId
-   $OneRelSliderId := get_ui_id($OneRelSlider)
+   make_persistent($GroupOneRelSlider)
+   declare $GroupOneRelSliderId
+   $GroupOneRelSliderId := get_ui_id($GroupOneRelSlider)
 
    declare ui_slider $GroupTwoAttSlider(0,1000000)
    make_persistent($GroupTwoAttSlider)
@@ -93,6 +100,10 @@ on init
 	end on
 
 	{ -- killswitch code -- }
+
+
+{ note callback, executed whenever a note on message is received }
+on note
 
     if ($EVENT_NOTE = 45)
 
