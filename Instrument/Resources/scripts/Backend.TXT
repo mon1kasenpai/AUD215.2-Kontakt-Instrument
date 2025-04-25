@@ -32,15 +32,16 @@ on init
         inc($i)
 
     end while
-
+{
     while($i <= $G3_KEY_END)
         
         set_key_color($i, $KEY_COLOR_MINT)
         inc($i)
         
     end while
+}
 
-end on
+    end on
 
 on note
 	{ -- killswitch code -- }
