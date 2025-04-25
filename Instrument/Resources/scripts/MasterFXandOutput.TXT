@@ -7,14 +7,29 @@ on init
 	declare const $X_OFFSET := 0
 	declare const $UI_COLOUR_HEX := 934d8ddh  {Change this to the 6 character hex number of your chosen colour and leave the 9 at the start and h at the end (eg. 9<hex_code>h).}
 	
+
+
 	{ -- sub snyth stuff -- }
+
+		declare const $SUBSYNTH_GROUP_START := 4
+
+		declare const $SUBSYNTH_GROUP_END := 8
+
+		declare $i
+
+		declare $KILLSWITCH_USED
 
 		declare ui_wavetable $SubSynthWave 
 
 		declare ui_menu $SubSynthDropdown
 		make_persistent($SubSynthDropdown)
+		declare $SubSynthDropdownId
+		$SubSynthDropdownId := get_ui_id($SubSynthDropdown)
 
-		declare ui_button $
+		declare ui_button $SubSynthEnable
+		declare $SubSynthEnableId
+		$SubSynthEnableId := get_ui_id($SubSynthEnable)
+		$SubSynthEnable := 1
 		
 		add_menu_item ($SubSynthDropdown, "Sine", 0)
 		add_menu_item ($SubSynthDropdown, "Square", 1)
@@ -74,9 +89,22 @@ on note
 
  disallow_group($ALL_GROUPS)
 
- 	if ($GroupThreeBypass = 0)
+	if ($SubSynthEnable = 1)
 
- 	allow_group(4)
+		if ($SubSynthDropdown = 0)
+
+			allow_group(5)
+
+		end if
+
+
+
+		if ($SubSynthDropdown = 2)
+
+			allow_group(4)
+
+		end if
+
 
  	end if
 
@@ -90,5 +118,18 @@ on note
         set_engine_par($ENGINE_PAR_VOLUME, 0, 3, -1, -1)
 
      end if
+
+end on
+
+on ui_control($SubSynthVol)
+
+	$i := $SUBSYNTH_GROUP_START
+
+	while ($i <= $SUBSYNTH_GROUP_END)
+
+        set_engine_par($ENGINE_PAR_VOLUME, $SubSynthVol, $i, 0, 0)
+        inc($i)
+
+    end while
 
 end on
