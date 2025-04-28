@@ -10,6 +10,7 @@ on init
 	declare $KILLSWITCH_USED
 
 	declare $i
+	declare $i2
 
    	declare ui_slider $GroupOneVol(0, 700000)
    	make_persistent($GroupOneVol)
@@ -62,6 +63,32 @@ on init
    make_persistent($RelKnob)
    declare $RelKnobId
    $RelKnobId := get_ui_id($RelKnob)
+
+   declare ui_slider $EqLow(20, 20000)
+   make_persistent($EqLow)
+   declare $EqLowId
+   $EqLowId := get_ui_id($EqLow)
+   
+   declare ui_slider $EqMid(20, 20000)
+   make_persistent($EqMid)
+   declare $EqMidId
+   $EqMidId := get_ui_id($EqMid)
+
+   declare ui_slider $EqHigh(20, 20000)
+   make_persistent($EqHigh)
+   declare $EqHighId
+   $EqHighId := get_ui_id($EqHigh)
+   
+   declare ui_slider $LP(50000,1000000)
+   make_persistent($LP)
+   declare $LpId
+   $LpId := get_ui_id($LP)
+   $LP := 1000000
+
+   declare ui_slider $HP(50000,1000000)
+   declare $HpId
+   $HpId := get_ui_id($HP)
+   $HP := 50000
 
 	{----Background----}
 

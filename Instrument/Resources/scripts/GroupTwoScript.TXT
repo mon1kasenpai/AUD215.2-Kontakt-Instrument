@@ -29,46 +29,52 @@ on init
    	declare $GroupFourBypassId
 	$GroupFourBypassId := get_ui_id($GroupFourBypass)
 
-	declare ui_slider $GroupThreeAttSlider(0,1000000)
-   make_persistent($GroupThreeAttSlider)
-   declare $GroupThreeAttSliderId
-   $GroupThreeAttSliderId := get_ui_id($GroupThreeAttSlider)
+	declare ui_slider $AttKnob(0,1000000)
+   make_persistent($AttKnob)
+   declare $AttKnobId
+   $AttKnobId := get_ui_id($AttKnob)
+	set_control_par_str($AttKnobId, $CONTROL_PAR_PICTURE, "AttKnob")
 
-   declare ui_slider $GroupThreeDecSlider(0,1000000)
-   make_persistent($GroupThreeDecSlider)
-   declare $GroupThreeDecSliderId
-   $GroupThreeDecSliderId := get_ui_id($GroupThreeDecSlider)
+   declare ui_slider $DecKnob(0,1000000)
+   make_persistent($DecKnob)
+   declare $DecKnobId
+   $DecKnobId := get_ui_id($DecKnob)
 
-   declare ui_slider $GroupThreeSusSlider(0,1000000)
-   make_persistent($GroupThreeSusSlider)
-   declare $GroupThreeSusSliderId
-   $GroupThreeSusSliderId := get_ui_id($GroupThreeSusSlider)
+   declare ui_slider $GroupOneSusKnob(0,1000000)
+   make_persistent($GroupOneSusKnob)
+   declare $GroupOneSusKnobId
+   $GroupOneSusKnobId := get_ui_id($GroupOneSusKnob)
 	
-   declare ui_slider $GroupThreeRelSlider(0,1000000)
-   make_persistent($GroupThreeRelSlider)
-   declare $GroupThreeRelSliderId
-   $GroupThreeRelSliderId := get_ui_id($GroupThreeRelSlider)
+   declare ui_slider $RelKnob(0,1000000)
+   make_persistent($RelKnob)
+   declare $RelKnobId
+   $RelKnobId := get_ui_id($RelKnob)
 
-   declare ui_slider $GroupFourAttSlider(0,1000000)
-   make_persistent($GroupFourAttSlider)
-   declare $GroupFourAttSliderId
-   $GroupFourAttSliderId := get_ui_id($GroupFourAttSlider)
+   declare ui_slider $EqLow(20, 20000)
+   make_persistent($EqLow)
+   declare $EqLowId
+   $EqLowId := get_ui_id($EqLow)
+   
+   declare ui_slider $EqMid(20, 20000)
+   make_persistent($EqMid)
+   declare $EqMidId
+   $EqMidId := get_ui_id($EqMid)
 
-   declare ui_slider $GroupFourDecSlider(0,1000000)
-   make_persistent($GroupFourDecSlider)
-   declare $GroupFourDecSliderId
-   $GroupFourDecSliderId := get_ui_id($GroupFourDecSlider)
+   declare ui_slider $EqHigh(20, 20000)
+   make_persistent($EqHigh)
+   declare $EqHighId
+   $EqHighId := get_ui_id($EqHigh)
+   
+   declare ui_slider $LP(50000,1000000)
+   make_persistent($LP)
+   declare $LpId
+   $LpId := get_ui_id($LP)
+   $LP := 1000000
 
-   declare ui_slider $GroupFourSusSlider(0,1000000)
-   make_persistent($GroupFourSusSlider)
-   declare $GroupFourSusSliderId
-   $GroupFourSusSliderId := get_ui_id($GroupFourSusSlider)
-	
-   declare ui_slider $GroupFourRelSlider(0,1000000)
-   make_persistent($GroupFourRelSlider)
-   declare $GroupFourRelSliderId
-   $GroupFourRelSliderId := get_ui_id($GroupFourRelSlider)
-
+   declare ui_slider $HP(50000,1000000)
+   declare $HpId
+   $HpId := get_ui_id($HP)
+   $HP := 50000
 
 	{----Background----}
 
