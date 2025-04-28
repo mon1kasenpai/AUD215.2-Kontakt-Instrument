@@ -48,11 +48,10 @@ on init
    $AttKnobId := get_ui_id($AttKnob)
 	set_control_par_str($AttKnobId, $CONTROL_PAR_PICTURE, "AttKnob")
 
-
-   declare ui_slider $GroupOneDecKnob(0,1000000)
-   make_persistent($GroupOneDecKnob)
-   declare $GroupOneDecKnobId
-   $GroupOneDecKnobId := get_ui_id($GroupOneDecKnob)
+   declare ui_slider $DecKnob(0,1000000)
+   make_persistent($DecKnob)
+   declare $DecKnobId
+   $DecKnobId := get_ui_id($DecKnob)
 
    declare ui_slider $GroupOneSusKnob(0,1000000)
    make_persistent($GroupOneSusKnob)
