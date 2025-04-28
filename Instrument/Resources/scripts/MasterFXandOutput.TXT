@@ -170,9 +170,9 @@ on release
         set_engine_par($ENGINE_PAR_VOLUME, $SubSynthVol, $i, 0, 0)
         inc($i)
 
+		$KILLSWITCH_USED := 0
     	end while
 
-		$KILLSWITCH_USED := 0
 		
 	end if
 
