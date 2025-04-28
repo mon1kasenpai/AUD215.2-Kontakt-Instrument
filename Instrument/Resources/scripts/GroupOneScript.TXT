@@ -15,7 +15,7 @@ on init
    	make_persistent($GroupOneVol)
    	declare $GroupOneVolId
    	$GroupOneVolId := get_ui_id($GroupOneVol)
-	set_control_par_str($GroupOneVolId, $CONTROL_PAR_PICTURE, "HoriSlider")
+	set_control_par_str($GroupOneVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
 	set_control_par_str($GroupOneVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 	move_control_px($GroupOneVol,100,38)
 
@@ -23,24 +23,31 @@ on init
    	make_persistent($GroupTwoVol)
    	declare $GroupTwoVolId
 	$GroupTwoVolId := get_ui_id($GroupTwoVol)
-	set_control_par_str($GroupTwoVolId, $CONTROL_PAR_PICTURE, "HoriSlider")
+	set_control_par_str($GroupTwoVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
 	set_control_par_str($GroupTwoVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
-	move_control_px($GroupTwoVol,100,56)
+	move_control_px($GroupTwoVol,100,93)
 
 	declare ui_button $GroupOneBypass
+	set_text($GroupOneBypass, "Mute Group 1")
    	make_persistent($GroupOneBypass)
    	declare $GroupOneBypassId
    	$GroupOneBypass := get_ui_id($GroupOneBypassId)
+	move_control_px($GroupOneBypass,17,80)
 
 	declare ui_button $GroupTwoBypass
+	set_text($GroupTwoBypass, "Mute Group 2")
    	make_persistent($GroupTwoBypass)
    	declare $GroupTwoBypassId
 	$GroupTwoBypassId := get_ui_id($GroupTwoBypass)
+	move_control_px($GroupTwoBypass,17,133)
+
 
 	declare ui_slider $AttKnob(0,1000000)
    make_persistent($AttKnob)
    declare $AttKnobId
    $AttKnobId := get_ui_id($AttKnob)
+	set_control_par_str($AttKnobId, $CONTROL_PAR_PICTURE, "AttKnob")
+
 
    declare ui_slider $GroupOneDecKnob(0,1000000)
    make_persistent($GroupOneDecKnob)
@@ -52,10 +59,10 @@ on init
    declare $GroupOneSusKnobId
    $GroupOneSusKnobId := get_ui_id($GroupOneSusKnob)
 	
-   declare ui_slider $GroupOneRelKnob(0,1000000)
-   make_persistent($GroupOneRelKnob)
-   declare $GroupOneRelKnobId
-   $GroupOneRelKnobId := get_ui_id($RelKnob)
+   declare ui_slider $RelKnob(0,1000000)
+   make_persistent($RelKnob)
+   declare $RelKnobId
+   $RelKnobId := get_ui_id($RelKnob)
 
 	{----Background----}
 
@@ -78,11 +85,37 @@ on init
 
 	end on
 
+on ui_control($GroupOneVol)
+
+    set_engine_par($ENGINE_PAR_VOLUME, $GroupOneVol, 0, 0, 0)
+
+	end on
+
+
+on ui_control($GroupTwoVol)
+
+    set_engine_par($ENGINE_PAR_VOLUME, $GroupTwoVol, 1, 0, 0)
+
+	end on
+
+
 	{ -- killswitch code -- }
 
-
-{ note callback, executed whenever a note on message is received }
 on note
+
+	disallow_group($ALL_GROUPS)
+
+	if($GroupOneBypass = 0)
+
+		allow_group(0)
+	
+	end if
+
+	if($GroupTwoBypass = 0)
+
+		allow_group(1)
+
+	end if
 
     if ($EVENT_NOTE = 45)
 
@@ -101,8 +134,8 @@ on release
 
 	if ($KILLSWITCH_USED = 1)
 		
-		set_engine_par($ENGINE_PAR_VOLUME, $GroupOneVol, 3, -1, -1)
-		set_engine_par($ENGINE_PAR_VOLUME, $GroupTwoVol, 4, -1, -1)
+		set_engine_par($ENGINE_PAR_VOLUME, $GroupOneVol, 0, -1, -1)
+		set_engine_par($ENGINE_PAR_VOLUME, $GroupTwoVol, 1, -1, -1)
 
 		$KILLSWITCH_USED := 0
 		

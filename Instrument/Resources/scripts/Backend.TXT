@@ -7,6 +7,9 @@ on init
 	declare const $NATURE_KEY_START := 48
 	declare const $NATURE_KEY_END := 59
 
+    declare const $NATURE_ONESHOT_KEY_START := 2
+    declare const $NATURE_ONESHOT_KEY_END := 2
+
     declare const $INDUST_KEY_START := 60
     declare const $INDUST_KEY_END := 71
 
@@ -46,8 +49,6 @@ on init
 on note
 	{ -- killswitch code -- }
     if ($EVENT_NOTE = 45)
-
-         disallow_group($ALL_GROUPS)
 
          message("KILLSWITCH USED - ALL GROUPS SILENCED")
 
