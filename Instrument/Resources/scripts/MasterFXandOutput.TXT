@@ -163,6 +163,8 @@ on release
 
 	if ($KILLSWITCH_USED = 1)
 
+		$i := $SUBSYNTH_GROUP_START
+
 		while ($i <= $SUBSYNTH_GROUP_END)
 
         set_engine_par($ENGINE_PAR_VOLUME, $SubSynthVol, $i, 0, 0)
