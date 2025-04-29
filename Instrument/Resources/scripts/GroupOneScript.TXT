@@ -111,6 +111,11 @@ on init
    $HpId := get_ui_id($HP)
    $HP := 50000
 
+   declare ui_button $NatureFxBypass
+   make_persistent($NatureFxBypass)
+   declare $NatureFxBypassId
+   $NatureFxBypassId := get_ui_id($NatureFxBypass)
+
 	{----Background----}
 
 		make_perfview
