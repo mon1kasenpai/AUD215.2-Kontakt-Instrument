@@ -50,7 +50,15 @@ on init
 	$GroupFiveVolId := get_ui_id($GroupFiveVol)
 	set_control_par_str($GroupFiveVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
 	set_control_par_str($GroupFiveVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
-	move_control_px($GroupFiveVol,100,120)
+	{move_control_px($GroupFiveVol,100,120)}
+
+	declare ui_slider $GroupSixVol(0, 700000)
+   	make_persistent($GroupSixVol)
+   	declare $GroupSixVolId
+	$GroupSixVolId := get_ui_id($GroupSixVol)
+	set_control_par_str($GroupSixVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
+	set_control_par_str($GroupSixVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+	{move_control_px($GroupSixVol,100,120)}
 
 	declare ui_button $GroupOneBypass
 	set_text($GroupOneBypass, "Mute Group 1")
@@ -78,27 +86,28 @@ on init
    	make_persistent($GroupFourBypass)
    	declare $GroupFourBypassId
 	$GroupFourBypassId := get_ui_id($GroupFourBypass)
-	{move_control_px($GroupThreeBypass,17,175)}
+	move_control_px($GroupFourBypass,17,175)
 
 	declare ui_button $GroupFiveBypass
 	set_text($GroupFiveBypass, "Mute Group 5")
    	make_persistent($GroupFiveBypass)
    	declare $GroupFiveBypassId
 	$GroupFiveBypassId := get_ui_id($GroupFiveBypass)
-	{move_control_px($GroupfiveBypass,17,175)}
+	move_control_px($GroupfiveBypass,17,195)
 
 	declare ui_button $GroupSixBypass
 	set_text($GroupSixBypass, "Mute Group 6")
    	make_persistent($GroupSixBypass)
    	declare $GroupSixBypassId
 	$GroupSixBypassId := get_ui_id($GroupSixBypass)
-	{move_control_px($GroupfiveBypass,17,175)}
+	move_control_px($GroupSixBypass,17,205)
 	
 	declare ui_slider $AttKnob(0,1000000)
    make_persistent($AttKnob)
    declare $AttKnobId
    $AttKnobId := get_ui_id($AttKnob)
    set_control_par_str($AttKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
+   set_control_par_str($AttKnobId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
    move_control_px($AttKnob, 100, 160)
 
    declare ui_slider $DecKnob(0,1000000)
@@ -107,7 +116,6 @@ on init
    $DecKnobId := get_ui_id($DecKnob)
    set_control_par_str($DecKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
 	move_control_px($DecKnob, 100,140)
-
 
    declare ui_slider $SusKnob(0,1000000)
    make_persistent($SusKnob)
@@ -190,8 +198,29 @@ on ui_control($GroupTwoVol)
 
 	end on
 
+on ui_control($GroupThreeVol)
+	
+	set_engine_par($ENGINE_PAR_VOLUME, $GroupThreeVol, 2, 0, 0)
 
-	{ -- killswitch code -- }
+	end on
+
+on ui_control($GroupFourVol)
+
+	set_engine_par($ENGINE_PAR_VOLUME, $GroupFourVol, 3, 0, 0)
+
+	end on
+
+on ui_control($GroupFiveVol)
+
+	set_engine_par($ENGINE_PAR_VOLUME, $GroupFiveVol, 8, 0, 0)
+
+	end on
+
+on ui_control($GroupSixVol)
+
+	set_engine_par($ENGINE_PAR_VOLUME, $GroupFiveVol, 9, 0, 0)
+
+	end on
 
 on note
 
@@ -230,8 +259,10 @@ on note
 	if($GroupSixBypass = 0)
 
 		allow_group(9)
-		
+
 	end if
+
+	{ -- killswitch code -- }
 
     if ($EVENT_NOTE = 45)
 
