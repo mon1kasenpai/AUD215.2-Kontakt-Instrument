@@ -4,45 +4,59 @@ on init
 
     set_script_title("Backend stuff")
  
-	declare const $NATURE_KEY_START := 48
-	declare const $NATURE_KEY_END := 59
+	declare const $BURB_KEY_START := 48
+	declare const $BURB_KEY_END := 52
 
-    declare const $NATURE_ONESHOT_KEY_START := 2
-    declare const $NATURE_ONESHOT_KEY_END := 2
+    declare const $TWINK_KEY_START := 53
+    declare const $TWINK_KEY_END := 56
 
-    declare const $INDUST_KEY_START := 60
-    declare const $INDUST_KEY_END := 71
+    declare const $WALK_KEY_START := 57
+    declare const $WALK_KEY_END := 60
 
-    declare const $G3_KEY_START := 72
-    declare const $G3_KEY_END := 83
+    declare const $INSECT_KEY_START := 61
+    declare const $INSECT_KEY_END := 63
 
-    declare $i := $NATURE_KEY_START
+    declare const $THUNDER_KEY := 64
+
+    declare $i := $BURB_KEY_START
 
     set_control_par_str($INST_ICON_ID, $CONTROL_PAR_PICTURE, "NID_instrument_icon")
 
+
     set_key_color( 45, $KEY_COLOR_RED)
 
-    while ($i <= $NATURE_KEY_END)
+    while ($i <= $BURB_KEY_END)
 
         set_key_color( $i, $KEY_COLOR_GREEN)
         inc($i)
 
     end while
 
-    while($i <= $INDUST_KEY_END)
+    while($i <= $TWINK_KEY_END)
 
-        set_key_color($i, $KEY_COLOR_ORANGE)
+        set_key_color($i, $KEY_COLOR_BLUE)
         inc($i)
 
     end while
-{
-    while($i <= $G3_KEY_END)
+
+    while($i <= $WALK_KEY_END)
         
         set_key_color($i, $KEY_COLOR_MINT)
         inc($i)
         
     end while
-}
+
+    while($i <= $INSECT_KEY_END)
+
+        set_key_color($i, $KEY_COLOR_VIOLET)
+
+    end while
+
+    set_key_color( $THUNDER_KEY, $KEY_COLOR_BLACK)
+        
+
+   { set_key_color( note-nr, key-color-constant )
+    set_key_color( note-nr, key-color-constant ) }
 
     end on
 

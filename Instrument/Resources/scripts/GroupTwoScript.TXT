@@ -28,6 +28,7 @@ on init
    	make_persistent($GroupFourBypass)
    	declare $GroupFourBypassId
 	$GroupFourBypassId := get_ui_id($GroupFourBypass)
+	
 
 	declare ui_slider $AttKnob(0,1000000)
    make_persistent($AttKnob)

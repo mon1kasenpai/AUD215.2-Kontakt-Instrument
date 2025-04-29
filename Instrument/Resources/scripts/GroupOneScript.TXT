@@ -28,6 +28,14 @@ on init
 	set_control_par_str($GroupTwoVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 	move_control_px($GroupTwoVol,100,93)
 
+	declare ui_slider $GroupThreeVol(0, 700000)
+   	make_persistent($GroupThreeVol)
+   	declare $GroupThreeVolId
+	$GroupThreeVolId := get_ui_id($GroupThreeVol)
+	set_control_par_str($GroupThreeVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
+	set_control_par_str($GroupThreeVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+	move_control_px($GroupThreeVol,100,120)
+
 	declare ui_button $GroupOneBypass
 	set_text($GroupOneBypass, "Mute Group 1")
    	make_persistent($GroupOneBypass)
@@ -42,7 +50,20 @@ on init
 	$GroupTwoBypassId := get_ui_id($GroupTwoBypass)
 	move_control_px($GroupTwoBypass,17,133)
 
+	declare ui_button $GroupThreeBypass
+	set_text($GroupThreeBypass, "Mute Group 3")
+   	make_persistent($GroupThreeBypass)
+   	declare $GroupThreeBypassId
+	$GroupThreeBypassId := get_ui_id($GroupThreeBypass)
+	move_control_px($GroupThreeBypass,17,155)
 
+	declare ui_button $GroupFourBypass
+	set_text($GroupFourBypass, "Mute Group 4")
+   	make_persistent($GroupFourBypass)
+   	declare $GroupFourBypassId
+	$GroupFourBypassId := get_ui_id($GroupFourBypass)
+	move_control_px($GroupThreeBypass,17,175)
+	
 	declare ui_slider $AttKnob(0,1000000)
    make_persistent($AttKnob)
    declare $AttKnobId
