@@ -86,27 +86,42 @@ on init
    	declare $GroupFiveBypassId
 	$GroupFiveBypassId := get_ui_id($GroupFiveBypass)
 	{move_control_px($GroupfiveBypass,17,175)}
+
+	declare ui_button $GroupSixBypass
+	set_text($GroupSixBypass, "Mute Group 6")
+   	make_persistent($GroupSixBypass)
+   	declare $GroupSixBypassId
+	$GroupSixBypassId := get_ui_id($GroupSixBypass)
+	{move_control_px($GroupfiveBypass,17,175)}
 	
 	declare ui_slider $AttKnob(0,1000000)
    make_persistent($AttKnob)
    declare $AttKnobId
    $AttKnobId := get_ui_id($AttKnob)
-	set_control_par_str($AttKnobId, $CONTROL_PAR_PICTURE, "AttKnob")
+   set_control_par_str($AttKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
+   move_control_px($AttKnob, 100, 160)
 
    declare ui_slider $DecKnob(0,1000000)
    make_persistent($DecKnob)
    declare $DecKnobId
    $DecKnobId := get_ui_id($DecKnob)
+   set_control_par_str($DecKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
+	move_control_px($DecKnob, 100,140)
 
-   declare ui_slider $GroupOneSusKnob(0,1000000)
-   make_persistent($GroupOneSusKnob)
-   declare $GroupOneSusKnobId
-   $GroupOneSusKnobId := get_ui_id($GroupOneSusKnob)
-	
+
+   declare ui_slider $SusKnob(0,1000000)
+   make_persistent($SusKnob)
+   declare $SusKnobId
+   $SusKnobId := get_ui_id($SusKnob)
+   set_control_par_str($SusKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
+	move_control_px($SusKnob, 100,120)
+
    declare ui_slider $RelKnob(0,1000000)
    make_persistent($RelKnob)
    declare $RelKnobId
    $RelKnobId := get_ui_id($RelKnob)
+   set_control_par_str($RelKnob, $CONTROL_PAR_PICTURE, "CompKnob")
+   move_control_px($RelKnob, 100,100)
 
    declare ui_slider $EqLow(20, 20000)
    make_persistent($EqLow)
@@ -198,6 +213,24 @@ on note
 
 		allow_group(2)
 
+	end if
+
+	if($GroupFourBypass = 0 )
+
+		allow_group(3)
+	
+	end if
+
+	if($GroupFiveBypass = 0)
+		
+		allow_group(8) { -- fucked this up and you cant reorder groups, please kill me -- }
+
+	end if
+
+	if($GroupSixBypass = 0)
+
+		allow_group(9)
+		
 	end if
 
     if ($EVENT_NOTE = 45)
