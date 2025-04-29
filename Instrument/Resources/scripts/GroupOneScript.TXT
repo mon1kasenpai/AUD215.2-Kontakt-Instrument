@@ -36,6 +36,22 @@ on init
 	set_control_par_str($GroupThreeVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 	move_control_px($GroupThreeVol,100,120)
 
+	declare ui_slider $GroupFourVol(0, 700000)
+   	make_persistent($GroupFourVol)
+   	declare $GroupFourVolId
+	$GroupFourVolId := get_ui_id($GroupFourVol)
+	set_control_par_str($GroupFourVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
+	set_control_par_str($GroupFourVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+	move_control_px($GroupFourVol,100,120)
+
+	declare ui_slider $GroupFiveVol(0, 700000)
+   	make_persistent($GroupFiveVol)
+   	declare $GroupFiveVolId
+	$GroupFiveVolId := get_ui_id($GroupFiveVol)
+	set_control_par_str($GroupFiveVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
+	set_control_par_str($GroupFiveVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+	move_control_px($GroupFiveVol,100,120)
+
 	declare ui_button $GroupOneBypass
 	set_text($GroupOneBypass, "Mute Group 1")
    	make_persistent($GroupOneBypass)
@@ -62,7 +78,14 @@ on init
    	make_persistent($GroupFourBypass)
    	declare $GroupFourBypassId
 	$GroupFourBypassId := get_ui_id($GroupFourBypass)
-	move_control_px($GroupThreeBypass,17,175)
+	{move_control_px($GroupThreeBypass,17,175)}
+
+	declare ui_button $GroupFiveBypass
+	set_text($GroupFiveBypass, "Mute Group 5")
+   	make_persistent($GroupFiveBypass)
+   	declare $GroupFiveBypassId
+	$GroupFiveBypassId := get_ui_id($GroupFiveBypass)
+	{move_control_px($GroupfiveBypass,17,175)}
 	
 	declare ui_slider $AttKnob(0,1000000)
    make_persistent($AttKnob)
@@ -107,11 +130,13 @@ on init
    $LP := 1000000
 
    declare ui_slider $HP(50000,1000000)
+   make_persistent($HP)
    declare $HpId
    $HpId := get_ui_id($HP)
    $HP := 50000
 
    declare ui_button $NatureFxBypass
+   set_text($NatureFxBypass, "Bypass FX")
    make_persistent($NatureFxBypass)
    declare $NatureFxBypassId
    $NatureFxBypassId := get_ui_id($NatureFxBypass)
@@ -166,6 +191,12 @@ on note
 	if($GroupTwoBypass = 0)
 
 		allow_group(1)
+
+	end if
+
+	if($GroupThreeBypass = 0)
+
+		allow_group(2)
 
 	end if
 
