@@ -13,9 +13,10 @@ on init
 
 		declare const $SUBSYNTH_GROUP_START := 4
 
-		declare const $SUBSYNTH_GROUP_END := 8
+		declare const $SUBSYNTH_GROUP_END := 7
 
 		declare $i
+		declare $i2
 
 		declare $KILLSWITCH_USED
 
