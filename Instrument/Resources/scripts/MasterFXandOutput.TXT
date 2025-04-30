@@ -43,6 +43,12 @@ on init
 		declare $SubSynthVolId
 		$SubSynthVolId := get_ui_id($SubSynthVol)
 
+
+		declare ui_slider $CreekVol (0, 700000)
+		make_persistent($CreekVol)
+		declare $CreekVolId
+		$CreekVolId := get_ui_id($CreekVol)
+
 		declare ui_slider $SubSynthAttSlider(0,1000000)
 		make_persistent($SubSynthAttSlider)
 		declare $SubSynthAttSliderId
