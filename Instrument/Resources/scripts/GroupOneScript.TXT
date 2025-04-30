@@ -65,42 +65,42 @@ on init
    	make_persistent($GroupOneBypass)
    	declare $GroupOneBypassId
    	$GroupOneBypass := get_ui_id($GroupOneBypassId)
-	move_control_px($GroupOneBypass,17,80)
+	move_control_px($GroupOneBypass,17,90)
 
 	declare ui_button $GroupTwoBypass
 	set_text($GroupTwoBypass, "Mute Group 2")
    	make_persistent($GroupTwoBypass)
    	declare $GroupTwoBypassId
 	$GroupTwoBypassId := get_ui_id($GroupTwoBypass)
-	move_control_px($GroupTwoBypass,17,133)
+	move_control_px($GroupTwoBypass,17,130)
 
 	declare ui_button $GroupThreeBypass
 	set_text($GroupThreeBypass, "Mute Group 3")
    	make_persistent($GroupThreeBypass)
    	declare $GroupThreeBypassId
 	$GroupThreeBypassId := get_ui_id($GroupThreeBypass)
-	move_control_px($GroupThreeBypass,17,155)
+	move_control_px($GroupThreeBypass,17,169)
 
 	declare ui_button $GroupFourBypass
 	set_text($GroupFourBypass, "Mute Group 4")
    	make_persistent($GroupFourBypass)
    	declare $GroupFourBypassId
 	$GroupFourBypassId := get_ui_id($GroupFourBypass)
-	move_control_px($GroupFourBypass,17,175)
+	move_control_px($GroupFourBypass,17,230)
 
 	declare ui_button $GroupFiveBypass
 	set_text($GroupFiveBypass, "Mute Group 5")
    	make_persistent($GroupFiveBypass)
    	declare $GroupFiveBypassId
 	$GroupFiveBypassId := get_ui_id($GroupFiveBypass)
-	move_control_px($GroupfiveBypass,17,195)
+	move_control_px($GroupfiveBypass,17,230)
 
 	declare ui_button $GroupSixBypass
 	set_text($GroupSixBypass, "Mute Group 6")
    	make_persistent($GroupSixBypass)
    	declare $GroupSixBypassId
 	$GroupSixBypassId := get_ui_id($GroupSixBypass)
-	move_control_px($GroupSixBypass,17,205)
+	move_control_px($GroupSixBypass,17,230)
 	
 	declare ui_slider $AttKnob(0,1000000)
    make_persistent($AttKnob)
@@ -174,7 +174,7 @@ on init
 
 	{----Background----}
 
-		make_perfview
+	make_perfview
 
    		set_script_title("Group 1: Birds and Trees")
 
