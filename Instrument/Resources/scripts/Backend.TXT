@@ -49,14 +49,11 @@ on init
     while($i <= $INSECT_KEY_END)
 
         set_key_color($i, $KEY_COLOR_VIOLET)
+        inc($i)
 
     end while
 
     set_key_color( $THUNDER_KEY, $KEY_COLOR_BLACK)
-        
-
-   { set_key_color( note-nr, key-color-constant )
-    set_key_color( note-nr, key-color-constant ) }
 
     end on
 
