@@ -135,27 +135,35 @@ on init
    make_persistent($EqLow)
    declare $EqLowId
    $EqLowId := get_ui_id($EqLow)
+   set_control_par_str($EqLowId, $CONTROL_PAR_PICTURE, "CompKnob")
+
    
    declare ui_slider $EqMid(20, 20000)
    make_persistent($EqMid)
    declare $EqMidId
    $EqMidId := get_ui_id($EqMid)
+   set_control_par_str($EqMidId, $CONTROL_PAR_PICTURE, "CompKnob")
+
 
    declare ui_slider $EqHigh(20, 20000)
    make_persistent($EqHigh)
    declare $EqHighId
    $EqHighId := get_ui_id($EqHigh)
+   set_control_par_str($EqHighId, $CONTROL_PAR_PICTURE, "CompKnob")
+
    
    declare ui_slider $LP(50000,1000000)
    make_persistent($LP)
    declare $LpId
    $LpId := get_ui_id($LP)
+   set_control_par_str($LpId, $CONTROL_PAR_PICTURE, "CompKnob")
    $LP := 1000000
 
    declare ui_slider $HP(50000,1000000)
    make_persistent($HP)
    declare $HpId
    $HpId := get_ui_id($HP)
+   set_control_par_str($HpId, $CONTROL_PAR_PICTURE, "CompKnob")
    $HP := 50000
 
    declare ui_button $NatureFxBypass
@@ -254,37 +262,37 @@ on note
 
 		allow_group(0)
 	
-	end if
+		end if
 
 	if($GroupTwoBypass = 0)
 
 		allow_group(1)
 
-	end if
+		end if
 
 	if($GroupThreeBypass = 0)
 
 		allow_group(2)
 
-	end if
+		end if
 
 	if($GroupFourBypass = 0 )
 
 		allow_group(3)
 	
-	end if
+		end if
 
 	if($GroupFiveBypass = 0)
 		
 		allow_group(8) { -- fucked this up and you cant reorder groups, please kill me -- }
 
-	end if
+		end if
 
 	if($GroupSixBypass = 0)
 
 		allow_group(9)
 
-	end if
+		end if
 
 	{ -- killswitch code -- }
 
