@@ -108,28 +108,28 @@ on init
    $AttKnobId := get_ui_id($AttKnob)
    set_control_par_str($AttKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
    set_control_par_str($AttKnobId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
-   move_control_px($AttKnob, 100, 160)
+   move_control_px($AttKnob, 190, 160)
 
    declare ui_slider $DecKnob(0,1000000)
    make_persistent($DecKnob)
    declare $DecKnobId
    $DecKnobId := get_ui_id($DecKnob)
    set_control_par_str($DecKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
-	move_control_px($DecKnob, 100,140)
+	move_control_px($DecKnob, 190,140)
 
    declare ui_slider $SusKnob(0,1000000)
    make_persistent($SusKnob)
    declare $SusKnobId
    $SusKnobId := get_ui_id($SusKnob)
    set_control_par_str($SusKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
-	move_control_px($SusKnob, 100,120)
+	move_control_px($SusKnob, 190,120)
 
    declare ui_slider $RelKnob(0,1000000)
    make_persistent($RelKnob)
    declare $RelKnobId
    $RelKnobId := get_ui_id($RelKnob)
-   set_control_par_str($RelKnob, $CONTROL_PAR_PICTURE, "CompKnob")
-   move_control_px($RelKnob, 100,100)
+   set_control_par_str($RelKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
+   move_control_px($RelKnob, 190,100)
 
    declare ui_slider $EqLow(20, 20000)
    make_persistent($EqLow)
@@ -182,6 +182,30 @@ on init
 		$KILLSWITCH_USED := 0
 
 		message("")
+
+	end on
+
+on ui_control($AttKnob)
+	
+	message("Nature Attack:" & $AttKnob)
+
+	end on
+
+on ui_control($SusKnob)
+
+	message("Nature Sus:" & $SusKnob)
+
+	end on
+
+on ui_control($DecKnob)
+
+	message("Nature dec:" & $DecKnob)
+
+	end on
+
+on ui_control($RelKnob)
+
+	message("nature Rel:" & $RelKnob)
 
 	end on
 
