@@ -88,11 +88,6 @@ on init
 
 end on
 
-{ UI callback, executed whenever the user changes the respective UI element }
-on ui_control($SubSynthDropdown)
-	{your code here}
-end on
-
 on ui_control($SubSynthVol)
 
 	$i := $SUBSYNTH_GROUP_START
@@ -103,6 +98,16 @@ on ui_control($SubSynthVol)
         inc($i)
 
     end while
+
+	message("Synth Vol:" & $SubSynthVol)
+
+	end on
+
+on ui_control($CreekVol)
+	
+	set_engine_par($ENGINE_PAR_VOLUME, $CreekVol, 10, 0, 0)
+	message("Creek Vol:" & $CreekVol)
+
 	end on
 
 on note
