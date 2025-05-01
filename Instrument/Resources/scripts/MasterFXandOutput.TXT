@@ -29,8 +29,15 @@ on init
 
 		declare ui_button $SubSynthEnable
 		declare $SubSynthEnableId
+		make_persistent($SubSynthEnable)
 		$SubSynthEnableId := get_ui_id($SubSynthEnable)
-		$SubSynthEnable := 1
+		set_control_par($SubSynthEnableId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
+
+		declare ui_button $CreekEnable
+		make_persistent($CreekEnable)
+		declare $CreekEnableId
+		$CreekEnableId := get_ui_id($CreekEnable)
+		set_control_par($CreekEnableId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
 		
 		add_menu_item ($SubSynthDropdown, "Sine", 0)
 		add_menu_item ($SubSynthDropdown, "Square", 1)
@@ -42,32 +49,44 @@ on init
 		make_persistent($SubSynthVol)
 		declare $SubSynthVolId
 		$SubSynthVolId := get_ui_id($SubSynthVol)
-
+		set_control_par_str($SubSynthVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
+		set_control_par_str($SubSynthVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 
 		declare ui_slider $CreekVol (0, 700000)
 		make_persistent($CreekVol)
 		declare $CreekVolId
 		$CreekVolId := get_ui_id($CreekVol)
+		set_control_par_str($CreekVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
+		set_control_par_str($CreekVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 
 		declare ui_slider $SubSynthAttSlider(0,1000000)
 		make_persistent($SubSynthAttSlider)
 		declare $SubSynthAttSliderId
 		$SubSynthAttSliderId := get_ui_id($SubSynthAttSlider)
+		set_control_par_str($SubSynthAttSliderId, $CONTROL_PAR_PICTURE, "CompKnob")
+   		set_control_par_str($SubSynthAttSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 
 		declare ui_slider $SubSynthDecSlider(0,1000000)
 		make_persistent($SubSynthDecSlider)
 		declare $SubSynthDecSliderId
 		$SubSynthDecSliderId := get_ui_id($SubSynthDecSlider)
+		set_control_par_str($SubSynthDecSliderId, $CONTROL_PAR_PICTURE, "CompKnob")
+   		set_control_par_str($SubSynthDecSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+
 
 		declare ui_slider $SubSynthSusSlider(0,1000000)
 		make_persistent($SubSynthSusSlider)
 		declare $SubSynthSusSliderId
 		$SubSynthSusSliderId := get_ui_id($SubSynthSusSlider)
+		set_control_par_str($SubSynthSusSliderId, $CONTROL_PAR_PICTURE, "CompKnob")
+   		set_control_par_str($SubSynthSusSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 			
 		declare ui_slider $SubSynthRelSlider(0,1000000)
 		make_persistent($SubSynthRelSlider)
 		declare $SubSynthRelSliderId
 		$SubSynthRelSliderId := get_ui_id($SubSynthRelSlider)
+		set_control_par_str($SubSynthRelSliderId, $CONTROL_PAR_PICTURE, "CompKnob")
+   		set_control_par_str($SubSynthRelSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 
 	{----Background----}
 
@@ -146,6 +165,12 @@ on note
 			allow_group(7)
 
  		end if
+
+	end if
+
+	if ($CreekEnable = 1)
+
+		allow_group(10)
 
 	end if
 

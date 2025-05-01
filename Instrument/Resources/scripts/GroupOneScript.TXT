@@ -64,7 +64,8 @@ on init
 	set_text($GroupOneBypass, "Mute Group 1")
    	make_persistent($GroupOneBypass)
    	declare $GroupOneBypassId
-   	$GroupOneBypass := get_ui_id($GroupOneBypassId)
+   	$GroupOneBypassId := get_ui_id($GroupOneBypass)
+	set_control_par($GroupOneBypassId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
 	move_control_px($GroupOneBypass,17,90)
 
 	declare ui_button $GroupTwoBypass
@@ -72,6 +73,7 @@ on init
    	make_persistent($GroupTwoBypass)
    	declare $GroupTwoBypassId
 	$GroupTwoBypassId := get_ui_id($GroupTwoBypass)
+	set_control_par($GroupTwoBypassId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
 	move_control_px($GroupTwoBypass,17,130)
 
 	declare ui_button $GroupThreeBypass
@@ -79,6 +81,7 @@ on init
    	make_persistent($GroupThreeBypass)
    	declare $GroupThreeBypassId
 	$GroupThreeBypassId := get_ui_id($GroupThreeBypass)
+	set_control_par($GroupThreeBypassId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
 	move_control_px($GroupThreeBypass,17,169)
 
 	declare ui_button $GroupFourBypass
@@ -86,6 +89,7 @@ on init
    	make_persistent($GroupFourBypass)
    	declare $GroupFourBypassId
 	$GroupFourBypassId := get_ui_id($GroupFourBypass)
+	set_control_par($GroupFourBypassId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
 	move_control_px($GroupFourBypass,17,212)
 
 	declare ui_button $GroupFiveBypass
@@ -93,6 +97,7 @@ on init
    	make_persistent($GroupFiveBypass)
    	declare $GroupFiveBypassId
 	$GroupFiveBypassId := get_ui_id($GroupFiveBypass)
+	set_control_par($GroupFiveBypassId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
 	move_control_px($GroupfiveBypass,17,255)
 
 	declare ui_button $GroupSixBypass
@@ -100,6 +105,7 @@ on init
    	make_persistent($GroupSixBypass)
    	declare $GroupSixBypassId
 	$GroupSixBypassId := get_ui_id($GroupSixBypass)
+	set_control_par($GroupSixBypassId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
 	move_control_px($GroupSixBypass,17,300)
 	
 	declare ui_slider $AttKnob(0,1000000)
@@ -143,6 +149,7 @@ on init
    declare $EqMidId
    $EqMidId := get_ui_id($EqMid)
    set_control_par_str($EqMidId, $CONTROL_PAR_PICTURE, "CompKnob")
+   move_control_px($EqMid, 507, 250)
 
 
    declare ui_slider $EqHigh(20, 20000)
@@ -171,6 +178,8 @@ on init
    make_persistent($NatureFxBypass)
    declare $NatureFxBypassId
    $NatureFxBypassId := get_ui_id($NatureFxBypass)
+   set_control_par($NatureFxBypassId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
+   move_control_px($NatureFxBypass, 485, 320)
 
 	{----Background----}
 
