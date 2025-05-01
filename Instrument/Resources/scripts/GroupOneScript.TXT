@@ -124,27 +124,27 @@ on init
 	move_control_px($DecKnob, 190,140)
 
    declare ui_slider $SusKnob(0,1000000)
-   make_persistent($SusKnob)
-   declare $SusKnobId
-   $SusKnobId := get_ui_id($SusKnob)
-   set_control_par_str($SusKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
+  	 make_persistent($SusKnob)
+   	declare $SusKnobId
+  	 $SusKnobId := get_ui_id($SusKnob)
+   	set_control_par_str($SusKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
 	move_control_px($SusKnob, 190,120)
 
    declare ui_slider $RelKnob(0,1000000)
-   make_persistent($RelKnob)
-   declare $RelKnobId
-   $RelKnobId := get_ui_id($RelKnob)
-   set_control_par_str($RelKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
-   move_control_px($RelKnob, 190,100)
+   	make_persistent($RelKnob)
+   	declare $RelKnobId
+   	$RelKnobId := get_ui_id($RelKnob)
+   	set_control_par_str($RelKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
+   	move_control_px($RelKnob, 190,100)
 
-   declare ui_slider $EqLow(20, 20000)
-   make_persistent($EqLow)
-   declare $EqLowId
-   $EqLowId := get_ui_id($EqLow)
-   set_control_par_str($EqLowId, $CONTROL_PAR_PICTURE, "CompKnob")
+   declare ui_slider $EqLow(470000, 1100000)
+   	make_persistent($EqLow)
+   	declare $EqLowId
+   	$EqLowId := get_ui_id($EqLow)
+   	set_control_par_str($EqLowId, $CONTROL_PAR_PICTURE, "CompKnob")
 
    
-   declare ui_slider $EqMid(20, 20000)
+   declare ui_slider $EqMid(470000, 1100000)
    make_persistent($EqMid)
    declare $EqMidId
    $EqMidId := get_ui_id($EqMid)
@@ -152,7 +152,7 @@ on init
    move_control_px($EqMid, 507, 250)
 
 
-   declare ui_slider $EqHigh(20, 20000)
+   declare ui_slider $EqHigh(470000, 1100000)
    make_persistent($EqHigh)
    declare $EqHighId
    $EqHighId := get_ui_id($EqHigh)
@@ -261,6 +261,98 @@ on ui_control($GroupFiveVol)
 on ui_control($GroupSixVol)
 
 	set_engine_par($ENGINE_PAR_VOLUME, $GroupFiveVol, 9, 0, 0)
+
+	end on
+
+on ui_control($AttKnob)
+
+   set_engine_par($ENGINE_PAR_ATTACK, $AttKnob, 0, find_mod(0, "ENV_AHDSR_0"), find_target(0, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_ATTACK, $AttKnob, 1, find_mod(1, "ENV_AHDSR_0"), find_target(1, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_ATTACK, $AttKnob, 2, find_mod(2, "ENV_AHDSR_0"), find_target(2, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_ATTACK, $AttKnob, 3, find_mod(3, "ENV_AHDSR_0"), find_target(3, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_ATTACK, $AttKnob, 8, find_mod(8, "ENV_AHDSR_0"), find_target(8, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_ATTACK, $AttKnob, 9, find_mod(9, "ENV_AHDSR_0"), find_target(9, 0, "ENV_AHDSR_0"))
+
+   message( "Nature Attack:" & $AttKnob)
+
+   end on
+
+on ui_control($DecKnob)
+
+   set_engine_par($ENGINE_PAR_DECAY, $DecKnob, 0, find_mod(0, "ENV_AHDSR_0"), find_target(0, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_DECAY, $DecKnob, 1, find_mod(1, "ENV_AHDSR_0"), find_target(1, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_DECAY, $DecKnob, 2, find_mod(2, "ENV_AHDSR_0"), find_target(2, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_DECAY, $DecKnob, 3, find_mod(3, "ENV_AHDSR_0"), find_target(3, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_DECAY, $DecKnob, 8, find_mod(8, "ENV_AHDSR_0"), find_target(8, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_DECAY, $DecKnob, 9, find_mod(9, "ENV_AHDSR_0"), find_target(9, 0, "ENV_AHDSR_0"))
+
+   message("Nature Decay:" & $DecKnob)
+
+   end on
+
+on ui_control($SusKnob)
+
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SusKnob, 0, find_mod(0, "ENV_AHDSR_0"), find_target(0, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SusKnob, 1, find_mod(1, "ENV_AHDSR_0"), find_target(1, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SusKnob, 2, find_mod(2, "ENV_AHDSR_0"), find_target(2, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SusKnob, 3, find_mod(3, "ENV_AHDSR_0"), find_target(3, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SusKnob, 8, find_mod(8, "ENV_AHDSR_0"), find_target(8, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SusKnob, 9, find_mod(9, "ENV_AHDSR_0"), find_target(9, 0, "ENV_AHDSR_0"))
+
+   message("Nature Sustain:" & $SusKnob)
+
+	end on
+
+on ui_control($RelKnob)
+
+   set_engine_par($ENGINE_PAR_RELEASE, $RelKnob, 0, find_mod(0, "ENV_AHDSR_0"), find_target(0, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_RELEASE, $RelKnob, 1, find_mod(1, "ENV_AHDSR_0"), find_target(1, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_RELEASE, $RelKnob, 2, find_mod(2, "ENV_AHDSR_0"), find_target(2, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_RELEASE, $RelKnob, 3, find_mod(3, "ENV_AHDSR_0"), find_target(3, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_RELEASE, $RelKnob, 8, find_mod(8, "ENV_AHDSR_0"), find_target(8, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_RELEASE, $RelKnob, 9, find_mod(9, "ENV_AHDSR_0"), find_target(9, 0, "ENV_AHDSR_0"))
+
+   message("Nature Release:" & $RelKnob)
+
+	end on
+
+on ui_control($EqLow)
+
+	set_engine_par($ENGINE_PAR_GAIN1, $EqLow, -1, 2, $NI_BUS_OFFSET + 0)
+
+	message($EqLow)
+
+	end on
+
+on ui_control($EqMid)
+	
+	set_engine_par($ENGINE_PAR_GAIN2, $EqMid, -1, 2, $NI_BUS_OFFSET + 0)
+
+	message($EqMid)
+
+	end on
+
+on ui_control($EqHigh)
+
+	set_engine_par($ENGINE_PAR_GAIN3, $EqHigh, -1, 2, $NI_BUS_OFFSET + 0)
+
+	message($EqHigh)
+
+	end on
+
+on ui_control($LP)
+
+	set_engine_par($ENGINE_PAR_CUTOFF, $LP, -1, 0, $NI_BUS_OFFSET + 0)
+
+	message("LP:" & $LP)
+
+	end on
+
+on ui_control($HP)
+	
+	set_engine_par($ENGINE_PAR_CUTOFF, $HP, -1, 1, $NI_BUS_OFFSET + 0)
+
+	message("HP:" & $HP)
 
 	end on
 
