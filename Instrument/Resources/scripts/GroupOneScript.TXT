@@ -18,7 +18,7 @@ on init
    	$GroupOneVolId := get_ui_id($GroupOneVol)
 	set_control_par_str($GroupOneVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
 	set_control_par_str($GroupOneVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
-	move_control_px($GroupOneVol,100,38)
+	move_control_px($GroupOneVol,100,47)
 
    	declare ui_slider $GroupTwoVol(0, 700000)
    	make_persistent($GroupTwoVol)
@@ -26,7 +26,7 @@ on init
 	$GroupTwoVolId := get_ui_id($GroupTwoVol)
 	set_control_par_str($GroupTwoVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
 	set_control_par_str($GroupTwoVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
-	move_control_px($GroupTwoVol,100,93)
+	move_control_px($GroupTwoVol,100,88)
 
 	declare ui_slider $GroupThreeVol(0, 700000)
    	make_persistent($GroupThreeVol)
@@ -34,7 +34,7 @@ on init
 	$GroupThreeVolId := get_ui_id($GroupThreeVol)
 	set_control_par_str($GroupThreeVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
 	set_control_par_str($GroupThreeVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
-	move_control_px($GroupThreeVol,100,120)
+	move_control_px($GroupThreeVol,100,128)
 
 	declare ui_slider $GroupFourVol(0, 700000)
    	make_persistent($GroupFourVol)
@@ -42,7 +42,7 @@ on init
 	$GroupFourVolId := get_ui_id($GroupFourVol)
 	set_control_par_str($GroupFourVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
 	set_control_par_str($GroupFourVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
-	move_control_px($GroupFourVol,100,120)
+	move_control_px($GroupFourVol,100,168)
 
 	declare ui_slider $GroupFiveVol(0, 700000)
    	make_persistent($GroupFiveVol)
@@ -50,7 +50,7 @@ on init
 	$GroupFiveVolId := get_ui_id($GroupFiveVol)
 	set_control_par_str($GroupFiveVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
 	set_control_par_str($GroupFiveVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
-	{move_control_px($GroupFiveVol,100,120)}
+	move_control_px($GroupFiveVol,100,210)
 
 	declare ui_slider $GroupSixVol(0, 700000)
    	make_persistent($GroupSixVol)
@@ -58,7 +58,7 @@ on init
 	$GroupSixVolId := get_ui_id($GroupSixVol)
 	set_control_par_str($GroupSixVolId, $CONTROL_PAR_PICTURE, "HoriSlider_256")
 	set_control_par_str($GroupSixVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
-	{move_control_px($GroupSixVol,100,120)}
+	move_control_px($GroupSixVol,100,256)
 
 	declare ui_button $GroupOneBypass
 	set_text($GroupOneBypass, "Mute Group 1")
@@ -86,21 +86,21 @@ on init
    	make_persistent($GroupFourBypass)
    	declare $GroupFourBypassId
 	$GroupFourBypassId := get_ui_id($GroupFourBypass)
-	move_control_px($GroupFourBypass,17,230)
+	move_control_px($GroupFourBypass,17,212)
 
 	declare ui_button $GroupFiveBypass
 	set_text($GroupFiveBypass, "Mute Group 5")
    	make_persistent($GroupFiveBypass)
    	declare $GroupFiveBypassId
 	$GroupFiveBypassId := get_ui_id($GroupFiveBypass)
-	move_control_px($GroupfiveBypass,17,230)
+	move_control_px($GroupfiveBypass,17,255)
 
 	declare ui_button $GroupSixBypass
 	set_text($GroupSixBypass, "Mute Group 6")
    	make_persistent($GroupSixBypass)
    	declare $GroupSixBypassId
 	$GroupSixBypassId := get_ui_id($GroupSixBypass)
-	move_control_px($GroupSixBypass,17,230)
+	move_control_px($GroupSixBypass,17,300)
 	
 	declare ui_slider $AttKnob(0,1000000)
    make_persistent($AttKnob)
@@ -220,6 +220,7 @@ on ui_control($RelKnob)
 on ui_control($GroupOneVol)
 
     set_engine_par($ENGINE_PAR_VOLUME, $GroupOneVol, 0, 0, 0)
+	message("modified group: 1 " & $GroupOneVol)
 
 	end on
 
