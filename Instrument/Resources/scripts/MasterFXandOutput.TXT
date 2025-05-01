@@ -102,7 +102,34 @@ on init
    		set_control_par_str($HpId, $CONTROL_PAR_PICTURE, "CompKnob")
    		$HP := 50000
 
-		declare declare ui_slider $SteroWidth(, max )
+		declare ui_slider $CompThresh(0,1000000)
+		make_persistent($CompThresh)
+		declare $CompThreshId
+		$CompThreshId := get_ui_id($CompThresh)
+   		set_control_par_str($CompThreshId, $CONTROL_PAR_PICTURE, "CompKnob")
+   		$CompThresh := 500000
+
+		declare ui_slider $CompRatio(0,1000000)
+		make_persistent($CompRatio)
+		declare $CompRatioId
+		$CompRatioId := get_ui_id($CompRatio)
+   		set_control_par_str($CompRatioId, $CONTROL_PAR_PICTURE, "CompKnob")
+   		$CompRatio := 500000
+
+		declare ui_slider $CompRel(0,1000000)
+		make_persistent($CompRel)
+		declare $CompRelId
+		$CompRelId := get_ui_id($CompRel)
+   		set_control_par_str($CompRelId, $CONTROL_PAR_PICTURE, "CompKnob")
+   		$CompRel := 500000
+
+		declare ui_slider $SteroWidth(50000,1000000)
+		make_persistent($SteroWidth)
+		declare $SteroWidthId
+		$SteroWidthId := get_ui_id($SteroWidth)
+   		set_control_par_str($SteroWidthId, $CONTROL_PAR_PICTURE, "CompKnob")
+   		$SteroWidth := 750000
+
 
 	{----Background----}
 
@@ -143,12 +170,37 @@ on ui_control($CreekVol)
 
 	end on
 
-{ UI callback, executed whenever the user changes the respective UI element }
+on ui_control($SubSynthEnable)
+
+	if ($SubSynthEnable = 1)
+
+		set_text($SubSynthEnable, "Sub Synth Disabled")
+
+	if ($SubSynthEnable = 0)
+
+		set_text($SubSynthEnable, "Sub Synth Enabled")
+
+	end if
+
+	end on
+
+on ui_control($CreekEnable)
+
+	if ($CreekEnable = 1)
+
+		set_text($CreekEnable, "Creek Layer Disabled")
+
+	if ($CreekEnable = 0)
+
+		set_text($CreekEnable, "Creek Layer Enabled")
+
+	end if
+
 on ui_control($SteroWidth)
 	
 
 	
-end on
+	end on
 
 on note
 
