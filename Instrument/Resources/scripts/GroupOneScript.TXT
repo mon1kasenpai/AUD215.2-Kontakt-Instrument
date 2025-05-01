@@ -142,7 +142,6 @@ on init
    	declare $EqLowId
    	$EqLowId := get_ui_id($EqLow)
    	set_control_par_str($EqLowId, $CONTROL_PAR_PICTURE, "CompKnob")
-
    
    declare ui_slider $EqMid(470000, 1100000)
    make_persistent($EqMid)
@@ -157,6 +156,7 @@ on init
    declare $EqHighId
    $EqHighId := get_ui_id($EqHigh)
    set_control_par_str($EqHighId, $CONTROL_PAR_PICTURE, "CompKnob")
+   move_control_px($EqHigh, 562, 250)
 
    
    declare ui_slider $LP(50000,1000000)
@@ -185,7 +185,7 @@ on init
 
 	make_perfview
 
-   		set_script_title("Group 1: Birds and Trees")
+   		set_script_title("Main Window")
 
 		set_ui_height_px($UI_HEIGHT)
 		set_ui_width_px($UI_WIDTH)
@@ -386,8 +386,8 @@ on note
 
 	if($GroupFiveBypass = 0)
 		
-		allow_group(8) { -- fucked this up and you cant reorder groups, please kill me -- }
-
+		allow_group(8) { -- fucked this up and you cant reorder groups, please kill me for my sins -- }
+ 
 		end if
 
 	if($GroupSixBypass = 0)

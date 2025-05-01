@@ -88,11 +88,27 @@ on init
 		set_control_par_str($SubSynthRelSliderId, $CONTROL_PAR_PICTURE, "CompKnob")
    		set_control_par_str($SubSynthRelSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 
+		declare ui_slider $LP(50000,1000000)
+  		make_persistent($LP)
+   		declare $LpId
+   		$LpId := get_ui_id($LP)
+   		set_control_par_str($LpId, $CONTROL_PAR_PICTURE, "CompKnob")
+   		$LP := 1000000
+
+   		declare ui_slider $HP(50000,1000000)
+   		make_persistent($HP)
+   		declare $HpId
+   		$HpId := get_ui_id($HP)
+   		set_control_par_str($HpId, $CONTROL_PAR_PICTURE, "CompKnob")
+   		$HP := 50000
+
+		declare declare ui_slider $SteroWidth(, max )
+
 	{----Background----}
 
 		make_perfview
 
-   		set_script_title("Master FX + Sub Synth")
+   		set_script_title("Master FX/Sub/Creek")
 
 		set_ui_height_px($UI_HEIGHT)
 		set_ui_width_px($UI_WIDTH)
@@ -126,6 +142,13 @@ on ui_control($CreekVol)
 	message("Creek Vol:" & $CreekVol)
 
 	end on
+
+{ UI callback, executed whenever the user changes the respective UI element }
+on ui_control($SteroWidth)
+	
+
+	
+end on
 
 on note
 
@@ -191,9 +214,8 @@ on note
 
      end if
 
-end on
+	end on
 
-{ release callback, executed whenever a note off message is received }
 on release
 
 	if ($KILLSWITCH_USED = 1)
@@ -211,4 +233,4 @@ on release
 		
 	end if
 
-end on
+	end on
