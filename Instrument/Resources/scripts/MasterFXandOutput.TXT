@@ -24,18 +24,21 @@ on init
 		make_persistent($SubSynthDropdown)
 		declare $SubSynthDropdownId
 		$SubSynthDropdownId := get_ui_id($SubSynthDropdown)
+		move_control_px($SubSynthDropdown, 325, 135)
 
 		declare ui_button $SubSynthEnable
 		declare $SubSynthEnableId
 		make_persistent($SubSynthEnable)
 		$SubSynthEnableId := get_ui_id($SubSynthEnable)
 		set_control_par($SubSynthEnableId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
+		move_control_px($SubSynthEnable, 220, 135)
 
 		declare ui_button $CreekEnable
 		make_persistent($CreekEnable)
 		declare $CreekEnableId
 		$CreekEnableId := get_ui_id($CreekEnable)
 		set_control_par($CreekEnableId, $CONTROL_PAR_TEXT_ALIGNMENT, 1)
+		move_control_px($CreekEnable, 280, 215)
 		
 		add_menu_item ($SubSynthDropdown, "Sine", 0)
 		add_menu_item ($SubSynthDropdown, "Square", 1)
@@ -172,13 +175,13 @@ on ui_control($CreekVol)
 
 on ui_control($SubSynthEnable)
 
-	if ($SubSynthEnable = 1)
+	if ($SubSynthEnable = 0)
 
 		set_text($SubSynthEnable, "Sub Synth Disabled")
 
 	end if
 
-	if ($SubSynthEnable = 0)
+	if ($SubSynthEnable = 1)
 
 		set_text($SubSynthEnable, "Sub Synth Enabled")
 
@@ -188,13 +191,13 @@ on ui_control($SubSynthEnable)
 
 on ui_control($CreekEnable)
 
-	if ($CreekEnable = 1)
+	if ($CreekEnable = 0)
 
 		set_text($CreekEnable, "Creek Layer Disabled")
 
 	end if
 
-	if ($CreekEnable = 0)
+	if ($CreekEnable = 1)
 
 		set_text($CreekEnable, "Creek Layer Enabled")
 

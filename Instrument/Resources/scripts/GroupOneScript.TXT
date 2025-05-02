@@ -360,7 +360,7 @@ on note
 
 	disallow_group($ALL_GROUPS)
 
-	if($GroupOneBypass = 0)
+	if($GroupOneBypass = 1)
 
 		allow_group(0)
 	
