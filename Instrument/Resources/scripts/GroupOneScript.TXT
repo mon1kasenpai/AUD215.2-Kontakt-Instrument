@@ -358,39 +358,37 @@ on ui_control($HP)
 
 on note
 
-	disallow_group($ALL_GROUPS)
-
 	if($GroupOneBypass = 1)
 
 		allow_group(0)
 	
 		end if
 
-	if($GroupTwoBypass = 0)
+	if($GroupTwoBypass = 1)
 
 		allow_group(1)
 
 		end if
 
-	if($GroupThreeBypass = 0)
+	if($GroupThreeBypass = 1)
 
 		allow_group(2)
 
 		end if
 
-	if($GroupFourBypass = 0 )
+	if($GroupFourBypass = 1)
 
 		allow_group(3)
 	
 		end if
 
-	if($GroupFiveBypass = 0)
+	if($GroupFiveBypass = 1)
 		
 		allow_group(8) { -- fucked this up and you cant reorder groups, please kill me for my sins -- }
  
 		end if
 
-	if($GroupSixBypass = 0)
+	if($GroupSixBypass = 1)
 
 		allow_group(9)
 
@@ -419,7 +417,8 @@ on release
 		set_engine_par($ENGINE_PAR_VOLUME, $GroupTwoVol, 1, -1, -1)
 
 		$KILLSWITCH_USED := 0
-		
-	end if
 
+		message("")
+
+		end if
 	end on

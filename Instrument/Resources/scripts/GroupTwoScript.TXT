@@ -99,9 +99,7 @@ end on
 
 on note
 
- disallow_group($ALL_GROUPS)
-
- 	if ($GroupThreeBypass = 0)
+ {	if ($GroupThreeBypass = 0)
 
  	allow_group(3)
 
@@ -111,7 +109,7 @@ on note
 
  	allow_group(4)
 
- 	end if
+ 	end if }
 
 	{ -- killswitch code -- }
 

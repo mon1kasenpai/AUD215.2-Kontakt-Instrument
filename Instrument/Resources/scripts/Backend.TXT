@@ -58,6 +58,8 @@ on init
     end on
 
 on note
+    disallow_group($ALL_GROUPS)
+
 	{ -- killswitch code -- }
     if ($EVENT_NOTE = 45)
 
