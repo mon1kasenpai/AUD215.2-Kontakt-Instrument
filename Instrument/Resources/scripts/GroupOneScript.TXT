@@ -12,6 +12,9 @@ on init
 	declare $i
 	declare $i2
 
+	declare const $ADSR_Y := 45
+	declare const $FIlT_Y := 120
+
    	declare ui_slider $GroupOneVol(0, 700000)
    	make_persistent($GroupOneVol)
    	declare $GroupOneVolId
@@ -114,34 +117,35 @@ on init
    $AttKnobId := get_ui_id($AttKnob)
    set_control_par_str($AttKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
    set_control_par_str($AttKnobId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
-   move_control_px($AttKnob, 190, 160)
+   move_control_px($AttKnob, 429, $ADSR_Y)
 
    declare ui_slider $DecKnob(0,1000000)
    make_persistent($DecKnob)
    declare $DecKnobId
    $DecKnobId := get_ui_id($DecKnob)
    set_control_par_str($DecKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
-	move_control_px($DecKnob, 190,140)
+	move_control_px($DecKnob, 478,$ADSR_Y)
 
    declare ui_slider $SusKnob(0,1000000)
   	 make_persistent($SusKnob)
    	declare $SusKnobId
   	 $SusKnobId := get_ui_id($SusKnob)
    	set_control_par_str($SusKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
-	move_control_px($SusKnob, 190,120)
+	move_control_px($SusKnob, 527,$ADSR_Y)
 
    declare ui_slider $RelKnob(0,1000000)
    	make_persistent($RelKnob)
    	declare $RelKnobId
    	$RelKnobId := get_ui_id($RelKnob)
    	set_control_par_str($RelKnobId, $CONTROL_PAR_PICTURE, "CompKnob")
-   	move_control_px($RelKnob, 190,100)
+   	move_control_px($RelKnob, 574,$ADSR_Y)
 
    declare ui_slider $EqLow(470000, 1100000)
    	make_persistent($EqLow)
    	declare $EqLowId
    	$EqLowId := get_ui_id($EqLow)
    	set_control_par_str($EqLowId, $CONTROL_PAR_PICTURE, "CompKnob")
+	move_control_px($EQLow, 457, 250)
    
    declare ui_slider $EqMid(470000, 1100000)
    make_persistent($EqMid)
@@ -164,6 +168,7 @@ on init
    declare $LpId
    $LpId := get_ui_id($LP)
    set_control_par_str($LpId, $CONTROL_PAR_PICTURE, "CompKnob")
+   move_control_px( $LP, 468, 135)
    $LP := 1000000
 
    declare ui_slider $HP(50000,1000000)
@@ -171,6 +176,7 @@ on init
    declare $HpId
    $HpId := get_ui_id($HP)
    set_control_par_str($HpId, $CONTROL_PAR_PICTURE, "CompKnob")
+   move_control_px($HP, 535, 135)
    $HP := 50000
 
    declare ui_button $NatureFxBypass

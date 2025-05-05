@@ -15,6 +15,8 @@ on init
 
 		declare const $VOLX := 180
 
+		declare const $FX_Y := 290
+
 		declare $i
 		declare $i2
 
@@ -62,19 +64,20 @@ on init
 		set_control_par_str($CreekVol, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 		move_control_px($CreekVol, $VOLX, 170)
 
+{		
 		declare ui_slider $SubSynthAttSlider(0,1000000)
 		make_persistent($SubSynthAttSlider)
 		declare $SubSynthAttSliderId
 		$SubSynthAttSliderId := get_ui_id($SubSynthAttSlider)
 		set_control_par_str($SubSynthAttSliderId, $CONTROL_PAR_PICTURE, "CompKnob")
-   		set_control_par_str($SubSynthAttSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+   	set_control_par_str($SubSynthAttSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 
 		declare ui_slider $SubSynthDecSlider(0,1000000)
 		make_persistent($SubSynthDecSlider)
 		declare $SubSynthDecSliderId
 		$SubSynthDecSliderId := get_ui_id($SubSynthDecSlider)
 		set_control_par_str($SubSynthDecSliderId, $CONTROL_PAR_PICTURE, "CompKnob")
-   		set_control_par_str($SubSynthDecSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+   	set_control_par_str($SubSynthDecSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 
 
 		declare ui_slider $SubSynthSusSlider(0,1000000)
@@ -82,56 +85,63 @@ on init
 		declare $SubSynthSusSliderId
 		$SubSynthSusSliderId := get_ui_id($SubSynthSusSlider)
 		set_control_par_str($SubSynthSusSliderId, $CONTROL_PAR_PICTURE, "CompKnob")
-   		set_control_par_str($SubSynthSusSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+   	set_control_par_str($SubSynthSusSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
 			
 		declare ui_slider $SubSynthRelSlider(0,1000000)
 		make_persistent($SubSynthRelSlider)
 		declare $SubSynthRelSliderId
 		$SubSynthRelSliderId := get_ui_id($SubSynthRelSlider)
 		set_control_par_str($SubSynthRelSliderId, $CONTROL_PAR_PICTURE, "CompKnob")
-   		set_control_par_str($SubSynthRelSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+   	set_control_par_str($SubSynthRelSliderId, $CONTROL_PAR_MOUSE_BEHAVIOUR, 1000)
+   	}
 
 		declare ui_slider $LP(50000,1000000)
   		make_persistent($LP)
-   		declare $LpId
-   		$LpId := get_ui_id($LP)
-   		set_control_par_str($LpId, $CONTROL_PAR_PICTURE, "CompKnob")
-   		$LP := 1000000
+   	declare $LpId
+   	$LpId := get_ui_id($LP)
+   	set_control_par_str($LpId, $CONTROL_PAR_PICTURE, "CompKnob")
+   	move_control_px($LP, 145, $FX_Y)
+   	$LP := 1000000
 
-   		declare ui_slider $HP(50000,1000000)
-   		make_persistent($HP)
-   		declare $HpId
-   		$HpId := get_ui_id($HP)
-   		set_control_par_str($HpId, $CONTROL_PAR_PICTURE, "CompKnob")
-   		$HP := 50000
+   	declare ui_slider $HP(50000,1000000)
+   	make_persistent($HP)
+   	declare $HpId
+   	$HpId := get_ui_id($HP)
+   	set_control_par_str($HpId, $CONTROL_PAR_PICTURE, "CompKnob")
+   	move_control_px($HP, 190, $FX_Y)
+   	$HP := 50000
 
 		declare ui_slider $CompThresh(0,1000000)
 		make_persistent($CompThresh)
 		declare $CompThreshId
 		$CompThreshId := get_ui_id($CompThresh)
-   		set_control_par_str($CompThreshId, $CONTROL_PAR_PICTURE, "CompKnob")
-   		$CompThresh := 500000
+   	set_control_par_str($CompThreshId, $CONTROL_PAR_PICTURE, "CompKnob")
+   	move_control_px($CompThresh, 245, $FX_Y)
+   	$CompThresh := 500000
 
 		declare ui_slider $CompRatio(0,1000000)
 		make_persistent($CompRatio)
 		declare $CompRatioId
 		$CompRatioId := get_ui_id($CompRatio)
-   		set_control_par_str($CompRatioId, $CONTROL_PAR_PICTURE, "CompKnob")
-   		$CompRatio := 500000
+   	set_control_par_str($CompRatioId, $CONTROL_PAR_PICTURE, "CompKnob")
+   	move_control_px($CompRatio, 300, $FX_Y)
+   	$CompRatio := 500000
 
 		declare ui_slider $CompRel(0,1000000)
 		make_persistent($CompRel)
 		declare $CompRelId
 		$CompRelId := get_ui_id($CompRel)
-   		set_control_par_str($CompRelId, $CONTROL_PAR_PICTURE, "CompKnob")
-   		$CompRel := 500000
+   	set_control_par_str($CompRelId, $CONTROL_PAR_PICTURE, "CompKnob")
+   	move_control_px($CompRel, 352, $FX_Y)
+   	$CompRel := 500000
 
 		declare ui_slider $SteroWidth(50000,1000000)
 		make_persistent($SteroWidth)
 		declare $SteroWidthId
 		$SteroWidthId := get_ui_id($SteroWidth)
-   		set_control_par_str($SteroWidthId, $CONTROL_PAR_PICTURE, "CompKnob")
-   		$SteroWidth := 750000
+   	set_control_par_str($SteroWidthId, $CONTROL_PAR_PICTURE, "CompKnob")
+   	move_control_px($SteroWidth, 438, $FX_Y)
+   	$SteroWidth := 750000
 
 
 	{----Background----}
@@ -202,6 +212,96 @@ on ui_control($CreekEnable)
 		set_text($CreekEnable, "Creek Layer Enabled")
 
 	end if
+
+	end on
+{
+on ui_control($SubSynthAttSlider)
+
+   set_engine_par($ENGINE_PAR_ATTACK, $SubSynthAttSlider, 4, find_mod(4, "ENV_AHDSR_0"), find_target(4, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_ATTACK, $SubSynthAttSlider, 5, find_mod(5, "ENV_AHDSR_0"), find_target(5, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_ATTACK, $SubSynthAttSlider, 6, find_mod(6, "ENV_AHDSR_0"), find_target(6, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_ATTACK, $SubSynthAttSlider, 7, find_mod(7, "ENV_AHDSR_0"), find_target(7, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_ATTACK, $SubSynthAttSlider, 10, find_mod(10, "ENV_AHDSR_0"), find_target(10, 0, "ENV_AHDSR_0"))
+
+
+   message( "Sub Attack:" & $SubSynthAttSlider)
+
+   end on
+
+on ui_control($SubSynthDecSlider)
+
+   set_engine_par($ENGINE_PAR_DECAY, $SubSynthDecSlider, 4, find_mod(4, "ENV_AHDSR_0"), find_target(4, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_DECAY, $SubSynthDecSlider, 5, find_mod(5, "ENV_AHDSR_0"), find_target(5, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_DECAY, $SubSynthDecSlider, 6, find_mod(6, "ENV_AHDSR_0"), find_target(6, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_DECAY, $SubSynthDecSlider, 7, find_mod(7, "ENV_AHDSR_0"), find_target(7, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_DECAY, $SubSynthDecSlider, 10, find_mod(10, "ENV_AHDSR_0"), find_target(10, 0, "ENV_AHDSR_0"))
+
+   message("Sub Decay:" & $SubSynthDecSlider)
+
+   end on
+
+on ui_control($SubSynthSusSlider)
+
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SubSynthSusSlider, 4, find_mod(4, "ENV_AHDSR_0"), find_target(4, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SubSynthSusSlider, 5, find_mod(5, "ENV_AHDSR_0"), find_target(5, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SubSynthSusSlider, 6, find_mod(6, "ENV_AHDSR_0"), find_target(6, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SubSynthSusSlider, 7, find_mod(7, "ENV_AHDSR_0"), find_target(7, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_SUSTAIN, $SubSynthSusSlider, 10, find_mod(10, "ENV_AHDSR_0"), find_target(10, 0, "ENV_AHDSR_0"))
+
+   message("Sub Sustain:" & $SubSynthSusSlider)
+
+	end on
+
+on ui_control($SubSynthRelSlider)
+
+   set_engine_par($ENGINE_PAR_RELEASE, $SubSynthRelSlider, 4, find_mod(4, "ENV_AHDSR_0"), find_target(4, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_RELEASE, $SubSynthRelSlider, 5, find_mod(5, "ENV_AHDSR_0"), find_target(5, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_RELEASE, $SubSynthRelSlider, 6, find_mod(6, "ENV_AHDSR_0"), find_target(6, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_RELEASE, $SubSynthRelSlider, 7, find_mod(7, "ENV_AHDSR_0"), find_target(7, 0, "ENV_AHDSR_0"))
+   set_engine_par($ENGINE_PAR_RELEASE, $SubSynthRelSlider, 10, find_mod(10, "ENV_AHDSR_0"), find_target(10, 0, "ENV_AHDSR_0"))
+
+   message("Sub Release:" & $SubSynthRelSlider)
+
+	end on 
+	}
+
+on ui_control($LP)
+
+	set_engine_par($ENGINE_PAR_CUTOFF, $LP, -1, 0, 0)
+
+	message("LP:" & $LP)
+
+	end on
+
+on ui_control($HP)
+	
+	set_engine_par($ENGINE_PAR_CUTOFF, $HP, -1, 1, 0)
+
+	message("HP:" & $HP)
+
+	end on
+
+on ui_control($CompThresh)
+
+	set_engine_par($ENGINE_PAR_THRESHOLD, $CompThresh, -1, 2, 0)
+
+	end on
+
+on ui_control($CompRatio)
+
+	set_engine_par($ENGINE_PAR_RATIO, $CompRatio, -1, 2, 0)
+
+	end on
+
+on ui_control($CompRel)
+
+	set_engine_par($ENGINE_PAR_COMP_DECAY, $CompRel, -1, 2, 0)
+
+	end on
+
+on ui_control($SteroWidth)
+
+	set_engine_par($ENGINE_PAR_STEREO, $SteroWidth, -1, 3, 0)
 
 	end on
 
